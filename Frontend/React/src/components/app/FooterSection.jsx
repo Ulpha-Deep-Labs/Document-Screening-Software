@@ -77,8 +77,8 @@ const FooterSection = () => {
           </ul>
         </div>
       </div>
-      <div className="border-t text-xs py-2 px-8 lg:px-14 mb-8">
-        Copyright &#169; {year} TraderOne Enterprises. All rights reserved
+      <div className="border-t text-xs py-2 px-8 lg:px-14">
+        Copyright &#169; {year} MSM Enterprises. All rights reserved
       </div>
     </footer>
   );
