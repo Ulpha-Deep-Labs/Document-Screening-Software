@@ -11,6 +11,7 @@ import FooterSection from "./FooterSection";
 import { AnimatePresence } from "framer-motion";
 import SignUp from "../../pages/SignUp";
 import { Navigate } from "react-router-dom";
+import NavBar from "./NavBar";
 
 const AnimatedRoutes = ({
   isOpen,
