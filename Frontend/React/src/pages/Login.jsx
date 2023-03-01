@@ -1,9 +1,7 @@
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 import { img1 } from "../assets/img";
 import MotionDiv from "../components/utils/MotionDiv";
 

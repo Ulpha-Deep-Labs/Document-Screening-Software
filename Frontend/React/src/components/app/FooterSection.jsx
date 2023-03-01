@@ -1,28 +1,18 @@
 import { Link } from "react-router-dom";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import Marquee from "react-fast-marquee";
 import { useLocation } from "react-router-dom";
 
 const FooterSection = () => {
   const year = new Date().getFullYear();
 
-  const [coins, setCoins] = useState(null);
-  useEffect(() => {
-    fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true"
-    )
-      .then((response) => response.json())
-      .then((data) => setCoins(data));
-  }, []);
-
-  const location = useLocation()
+  const location = useLocation();
   return (
-    location.pathname!='/' &&  <footer className="w-full border-y">
+    <footer className="w-full border-y">
       <div className="grid grid-cols-1 lg:grid-cols-10 px-8 lg:px-0 text-sm font-medium max-w-6xl mx-auto">
         <div className="flex flex-col lg:col-span-2 lg:text-base py-8 lg:py-14">
           <h4 className=" font-bold text-rose-500">
-            Trader<span className="text-zinc-600">One</span>
+            MSM
           </h4>
         </div>
         <div className="capitalize lg:col-span-2 py-8 lg:py-14 ">
@@ -44,12 +34,12 @@ const FooterSection = () => {
         <div className="capitalize lg:px-20 lg:col-span-3 py-8 lg:py-14 border-y lg:border-x lg:border-y-0">
           <h4 className=" font-bold text-zinc-800 mb-3 lg:mb-10">Contact</h4>
           <ul className="flex flex-col gap-3 text-zinc-600">
-            <li>43 Webster Lane</li>
-            <li>Brooklyn</li>
-            <li>Newyork</li>
+            <li>12 Eziobodo Road</li>
+            <li>Eziobodo</li>
+            <li>Owerri</li>
             <li>
-              <a href="tel:+1-305-632-203" className="hover:underline">
-                +1-305-632-203
+              <a href="tel:+234-801-2345-678" className="hover:underline">
+                +234-801-2345-678
               </a>
             </li>
           </ul>
@@ -90,42 +80,6 @@ const FooterSection = () => {
       <div className="border-t text-xs py-2 px-8 lg:px-14 mb-8">
         Copyright &#169; {year} TraderOne Enterprises. All rights reserved
       </div>
-      {coins && (
-        <div className="fixed bottom-0 z-[100]">
-          <Marquee
-            speed={50}
-            loop={0}
-            className="border-t bg-white text-xs py-2"
-          >
-            <ul className="flex">
-              {coins.map((coin) => (
-                <li className="flex gap-1 px-6">
-                  <img src={coin.image} alt="" className="h-4 w-4" />
-                  {coin.name}{" "}
-                  <span className="uppercase text-zinc-500">
-                    [{coin.symbol}]
-                  </span>{" "}
-                  <span className="text-zinc-800 font-semibold">
-                    ${coin.current_price}
-                  </span>
-                  <span
-                    className={`${
-                      coin.price_change_percentage_24h >= 0
-                        ? "text-green-500"
-                        : "text-red-500"
-                    } font-medium`}
-                  >
-                    {`${
-                      coin.price_change_percentage_24h >= 0 ? "+" : ""
-                    }${coin.price_change_percentage_24h.toFixed(2)}`}
-                    %
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Marquee>
-        </div>
-      )}
     </footer>
   );
 };

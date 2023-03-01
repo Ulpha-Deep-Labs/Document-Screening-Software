@@ -40,7 +40,7 @@ const AnimatedRoutes = ({
         </Routes>
       )}
 
-      {/* {!isOpen && <FooterSection />} */}
+      {!isOpen && <FooterSection />}
     </AnimatePresence>
   );
 };
